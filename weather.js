@@ -22,7 +22,7 @@ document.getElementById("getWeatherBtn").addEventListener("click", () => {
       const temp = data.main.temp;
       const weather = data.weather[0].description;
       //   console.log(data.weather[0].main);
-      resultDiv.innerHTML = `City: ${city} Weather: ${weather} temprature: ${temp}`;
+      resultDiv.innerHTML = `City: ${city} <br> Weather: ${weather} <br> temprature: ${temp}°C`;
       const weatherType = data.weather[0].main;
       console.log(weatherType);
       const video = document.getElementById("bgVideo").querySelector("source");
@@ -38,8 +38,8 @@ document.getElementById("getWeatherBtn").addEventListener("click", () => {
       } else if (weatherType === "Rain") {
         video.src =
           "https://cdn.pixabay.com/video/2023/02/26/152265-802516290_large.mp4";
-      } else {
-        video.src = "";
+      } else if (weatherType === "Haze") {
+        video.src = "https://cdn.pixabay.com/video/2024/05/15/212102_large.mp4";
       }
 
       // Reload video after changing source
